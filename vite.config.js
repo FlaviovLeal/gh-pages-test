@@ -3,6 +3,6 @@ import { svelte } from '@sveltejs/vite-plugin-svelte'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/mc-random-enconter/",
+  base: '/mc-random-enconter/',
   plugins: [svelte()]
 })

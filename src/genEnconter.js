@@ -68,7 +68,8 @@ export function genEnconter (settings) {
     if (adjustment.difficulty > maxAdjustment) { maxAdjustment = adjustment.difficulty }
     if (adjustment.difficulty < minAdjustment) { minAdjustment = adjustment.difficulty }
   }
-  const filteredVillains = allVillains.filter(enconter => (enconter.difficulty <= difficulty + maxAdjustment && enconter.difficulty >= difficulty + minAdjustment))
+  let filteredVillains = allVillains.filter(enconter => (enconter.difficulty <= difficulty + maxAdjustment && enconter.difficulty >= difficulty + minAdjustment))
+  filteredVillains = filteredVillains.filter(villain => settings.solo === villain.solo)
 
   enconter.addVillain(pickElement(filteredVillains))
 

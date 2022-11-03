@@ -1,336 +1,336 @@
 export const allVillains = [
   {
-    solo: 'yes',
+    solo: true,
     set: 'Core Set',
     name: 'Rhino',
     difficulty: 6
   },
   {
-    solo: 'yes',
+    solo: true,
     set: 'Core Set',
     name: 'Klaw',
     difficulty: 10
   },
   {
-    solo: 'yes',
+    solo: true,
     set: 'Core Set',
     name: 'Ultron',
     difficulty: 9
   },
   {
-    solo: 'yes',
+    solo: true,
     set: 'Wrecking Crew',
     name: 'Wrecking Crew',
     difficulty: -2
   },
   {
-    solo: 'yes',
+    solo: true,
     set: 'Green Goblin',
     name: 'Risky Business',
     difficulty: 0
   },
   {
-    solo: 'yes',
+    solo: true,
     set: 'Green Goblin',
     name: 'Mutagen Formula',
     difficulty: 11
   },
   {
-    solo: 'yes',
+    solo: true,
     set: 'Rise of Red Skull',
     name: 'Crossbones',
     difficulty: 3
   },
   {
-    solo: 'yes',
+    solo: true,
     set: 'Rise of Red Skull',
     name: 'Absorbing Man',
     difficulty: 2
   },
   {
-    solo: 'yes',
+    solo: true,
     set: 'Rise of Red Skull',
     name: 'Taskmaster',
     difficulty: 4
   },
   {
-    solo: 'yes',
+    solo: true,
     set: 'Rise of Red Skull',
     name: 'Zola',
     difficulty: 14
   },
   {
-    solo: 'yes',
+    solo: true,
     set: 'Rise of Red Skull',
     name: 'Red Skull',
     difficulty: 14
   },
   {
-    solo: 'yes',
+    solo: true,
     set: 'Kang',
     name: 'Kang',
     difficulty: 10
   },
   {
-    solo: 'yes',
+    solo: true,
     set: "Galaxy's Most Wanted",
     name: 'Brotherhood of Badoon',
     difficulty: -1
   },
   {
-    solo: 'yes',
+    solo: true,
     set: "Galaxy's Most Wanted",
     name: 'Infiltrate the Museum',
     difficulty: 10
   },
   {
-    solo: 'yes',
+    solo: true,
     set: "Galaxy's Most Wanted",
     name: 'Escape the Museum',
     difficulty: 8
   },
   {
-    solo: 'yes',
+    solo: true,
     set: "Galaxy's Most Wanted",
     name: 'Nebula',
     difficulty: 13
   },
   {
-    solo: 'yes',
+    solo: true,
     set: "Galaxy's Most Wanted",
     name: 'Ronan the Accuser',
     difficulty: 23
   },
   {
-    solo: 'yes',
+    solo: true,
     set: "Galaxy's Most Wanted",
     name: 'Ebony Maw',
     difficulty: 5
   },
   {
-    solo: 'yes',
+    solo: true,
     set: "Galaxy's Most Wanted",
     name: 'Tower Defense',
     difficulty: -2
   },
   {
-    solo: 'yes',
+    solo: true,
     set: "Galaxy's Most Wanted",
     name: 'Thanos',
     difficulty: 3
   },
   {
-    solo: 'yes',
+    solo: true,
     set: "Galaxy's Most Wanted",
     name: 'Hela',
     difficulty: 5
   },
   {
-    solo: 'yes',
+    solo: true,
     set: "Galaxy's Most Wanted",
     name: 'Loki',
     difficulty: 13
   },
   {
-    solo: 'yes',
+    solo: true,
     set: 'The Hood',
     name: 'The Hood',
     difficulty: 6
   },
   {
-    solo: 'yes',
+    solo: true,
     set: 'Sinister Motives',
     name: 'Sandman',
     difficulty: 3
   },
   {
-    solo: 'yes',
+    solo: true,
     set: 'Sinister Motives',
     name: 'Venom',
     difficulty: 12
   },
   {
-    solo: 'yes',
+    solo: true,
     set: 'Sinister Motives',
     name: 'Mysterio',
     difficulty: -2
   },
   {
-    solo: 'yes',
+    solo: true,
     set: 'Sinister Motives',
     name: 'The Sinister Six',
     difficulty: 6
   },
   {
-    solo: 'yes',
+    solo: true,
     set: 'Sinister Motives',
     name: 'Venom Goblin',
     difficulty: 12
   },
   {
-    solo: 'no',
+    solo: false,
     set: 'Core Set',
     name: 'Rhino',
     difficulty: 0
   },
   {
-    solo: 'no',
+    solo: false,
     set: 'Core Set',
     name: 'Klaw',
     difficulty: 3
   },
   {
-    solo: 'no',
+    solo: false,
     set: 'Core Set',
     name: 'Ultron',
     difficulty: 12
   },
   {
-    solo: 'no',
+    solo: false,
     set: 'Wrecking Crew',
     name: 'Wrecking Crew',
     difficulty: 2
   },
   {
-    solo: 'no',
+    solo: false,
     set: 'Green Goblin',
     name: 'Risky Business',
     difficulty: -1
   },
   {
-    solo: 'no',
+    solo: false,
     set: 'Green Goblin',
     name: 'Mutagen Formula',
     difficulty: 10
   },
   {
-    solo: 'no',
+    solo: false,
     set: 'Rise of Red Skull',
     name: 'Crossbones',
     difficulty: 0
   },
   {
-    solo: 'no',
+    solo: false,
     set: 'Rise of Red Skull',
     name: 'Absorbing Man',
     difficulty: -1
   },
   {
-    solo: 'no',
+    solo: false,
     set: 'Rise of Red Skull',
     name: 'Taskmaster',
     difficulty: 5
   },
   {
-    solo: 'no',
+    solo: false,
     set: 'Rise of Red Skull',
     name: 'Zola',
     difficulty: 9
   },
   {
-    solo: 'no',
+    solo: false,
     set: 'Rise of Red Skull',
     name: 'Red Skull',
     difficulty: 16
   },
   {
-    solo: 'no',
+    solo: false,
     set: 'Kang',
     name: 'Kang',
     difficulty: 9
   },
   {
-    solo: 'no',
+    solo: false,
     set: "Galaxy's Most Wanted",
     name: 'Brotherhood of Badoon',
     difficulty: 6
   },
   {
-    solo: 'no',
+    solo: false,
     set: "Galaxy's Most Wanted",
     name: 'Infiltrate the Museum',
     difficulty: 8
   },
   {
-    solo: 'no',
+    solo: false,
     set: "Galaxy's Most Wanted",
     name: 'Escape the Museum',
     difficulty: 10
   },
   {
-    solo: 'no',
+    solo: false,
     set: "Galaxy's Most Wanted",
     name: 'Nebula',
     difficulty: 16
   },
   {
-    solo: 'no',
+    solo: false,
     set: "Galaxy's Most Wanted",
     name: 'Ronan the Accuser',
     difficulty: 22
   },
   {
-    solo: 'no',
+    solo: false,
     set: "Galaxy's Most Wanted",
     name: 'Ebony Maw',
     difficulty: 9
   },
   {
-    solo: 'no',
+    solo: false,
     set: "Galaxy's Most Wanted",
     name: 'Tower Defense',
     difficulty: -1
   },
   {
-    solo: 'no',
+    solo: false,
     set: "Galaxy's Most Wanted",
     name: 'Thanos',
     difficulty: 4
   },
   {
-    solo: 'no',
+    solo: false,
     set: "Galaxy's Most Wanted",
     name: 'Hela',
     difficulty: 3
   },
   {
-    solo: 'no',
+    solo: false,
     set: "Galaxy's Most Wanted",
     name: 'Loki',
     difficulty: 13
   },
   {
-    solo: 'no',
+    solo: false,
     set: 'The Hood',
     name: 'The Hood',
     difficulty: 6
   },
   {
-    solo: 'no',
+    solo: false,
     set: 'Sinister Motives',
     name: 'Sandman',
     difficulty: 0
   },
   {
-    solo: 'no',
+    solo: false,
     set: 'Sinister Motives',
     name: 'Venom',
     difficulty: 1
   },
   {
-    solo: 'no',
+    solo: false,
     set: 'Sinister Motives',
     name: 'Mysterio',
     difficulty: -3
   },
   {
-    solo: 'no',
+    solo: false,
     set: 'Sinister Motives',
     name: 'The Sinister Six',
     difficulty: 2
   },
   {
-    solo: 'no',
+    solo: false,
     set: 'Sinister Motives',
     name: 'Venom Goblin',
     difficulty: 15
