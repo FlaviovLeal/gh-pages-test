@@ -1,4 +1,4 @@
-import { allElements, extractType } from './data.js'
+import { extractType } from './data.js'
 
 class Enconter {
   constructor () {
@@ -8,7 +8,7 @@ class Enconter {
   };
 
   calc_difficulty (solo) {
-    return this.villain.getDifficulty(solo) + this.module.reduce((a, b) => a + b.getDifficulty(solo), 0) + this.adjustment.getDifficulty(solo)
+    return this.villain.getDifficulty(solo) ?? 0 + this.module.reduce((a, b) => a + b.getDifficulty(solo), 0) ?? 0 + this.adjustment.getDifficulty(solo) ?? 0
   };
 
   addVillain (villain) { this.villain = villain };
@@ -47,12 +47,12 @@ function pickElement (elementList, target = undefined, error = undefined, solo) 
   return bestAdjustments
 }
 
-export function genEnconter (settings) {
+export function genEnconter (settings, allElements) {
   const difficulty = settings.difficulty
   const moduleNumber = settings.moduleNumber
   const solo = settings.solo
-  const allModules = extractType(allElements, 'modules')
-  const allAdjustments = extractType(allElements, 'adjustments')
+  const allModules = extractType(allElements, 'module')
+  const allAdjustments = extractType(allElements, 'adjustment')
   const allVillains = extractType(allElements, 'villain')
   const enconter = new Enconter()
 
@@ -63,8 +63,7 @@ export function genEnconter (settings) {
     if (adjustment.getDifficulty(solo) > maxAdjustment) { maxAdjustment = adjustment.getDifficulty(solo) }
     if (adjustment.getDifficulty(solo) < minAdjustment) { minAdjustment = adjustment.getDifficulty(solo) }
   }
-  let filteredVillains = allVillains.filter(enconter => (enconter.getDifficulty(solo) <= difficulty + maxAdjustment && enconter.getDifficulty(solo) >= difficulty + minAdjustment))
-  filteredVillains = filteredVillains.filter(villain => settings.solo === villain.solo)
+  const filteredVillains = allVillains.filter(enconter => (enconter.getDifficulty(solo) <= difficulty + maxAdjustment && enconter.getDifficulty(solo) >= difficulty + minAdjustment))
 
   enconter.addVillain(pickElement(filteredVillains))
 
@@ -73,12 +72,14 @@ export function genEnconter (settings) {
     enconter.addModule(allModules[index])
     allModules.splice(index, 1)
   }
-
+  console.log('1')
   let target = difficulty - enconter.calc_difficulty()
+  console.log('1')
   enconter.addAdjustment(pickElement(allAdjustments, target, 2))
 
   for (let i = 0; i < Math.round(moduleNumber * 1 / 3); i++) {
     target = difficulty - enconter.calc_difficulty()
+    console.log('1')
     const module = pickElement(allModules, target, 2)
     const index = allModules.findIndex(i => i.name === module.name)
 

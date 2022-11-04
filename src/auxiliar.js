@@ -12,9 +12,11 @@ export function getElementsfromSet (elements, set) {
   return elements.filter(element => set === element.set)
 }
 
-export function UpdateAllElementsFromSet (elements, enabled) {
+export function UpdateAllElementsFromSet (elements, set, enabled) {
   for (let i = 0; i < elements.length; i++) {
-    elements[i].enabled = enabled
+    if (elements[i].set === set) {
+      elements[i].enabled = enabled
+    }
   }
   return elements
 }
