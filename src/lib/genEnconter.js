@@ -51,35 +51,37 @@ export function genEnconter (settings, allElements) {
   const difficulty = settings.difficulty
   const moduleNumber = settings.moduleNumber
   const solo = settings.solo
+  const enconter = new Enconter()
+  allElements = allElements.filter(item => item.enabled)
   const allModules = extractType(allElements, 'module')
   const allAdjustments = extractType(allElements, 'adjustment')
   const allVillains = extractType(allElements, 'villain')
-  const enconter = new Enconter()
 
   let maxAdjustment = allAdjustments[0].getDifficulty(solo)
   let minAdjustment = allAdjustments[0].getDifficulty(solo)
   for (let i = 0; i < allAdjustments.length; i++) {
     const adjustment = allAdjustments[i]
-    if (adjustment.getDifficulty(solo) > maxAdjustment) { maxAdjustment = adjustment.getDifficulty(solo) }
-    if (adjustment.getDifficulty(solo) < minAdjustment) { minAdjustment = adjustment.getDifficulty(solo) }
+    if (adjustment.getDifficulty(solo) >= maxAdjustment) { maxAdjustment = adjustment.getDifficulty(solo) }
+    if (adjustment.getDifficulty(solo) <= minAdjustment) { minAdjustment = adjustment.getDifficulty(solo) }
   }
-  const filteredVillains = allVillains.filter(enconter => (enconter.getDifficulty(solo) <= difficulty + maxAdjustment && enconter.getDifficulty(solo) >= difficulty + minAdjustment))
-
+  const filteredVillains = allVillains.filter(enconter => (enconter.getDifficulty(solo) <= difficulty + maxAdjustment + 5 && enconter.getDifficulty(solo) >= difficulty + minAdjustment - 5))
+  console.log(filteredVillains)
   enconter.addVillain(pickElement(filteredVillains))
 
-  for (let i = 0; i < Math.round(moduleNumber * 2 / 3); i++) {
+  let moduleAdjustment
+  if (maxAdjustment - minAdjustment < 8) { moduleAdjustment = 1 / 3 } else { moduleAdjustment = 2 / 3 }
+
+  for (let i = 0; i < Math.round(moduleNumber * moduleAdjustment); i++) {
     const index = Math.floor(Math.random() * allModules.length)
     enconter.addModule(allModules[index])
     allModules.splice(index, 1)
   }
-  console.log('1')
   let target = difficulty - enconter.calc_difficulty()
-  console.log('1')
   enconter.addAdjustment(pickElement(allAdjustments, target, 2))
 
-  for (let i = 0; i < Math.round(moduleNumber * 1 / 3); i++) {
+  for (let i = 0; i < Math.round(moduleNumber * (1 - moduleAdjustment)); i++) {
     target = difficulty - enconter.calc_difficulty()
-    console.log('1')
+
     const module = pickElement(allModules, target, 2)
     const index = allModules.findIndex(i => i.name === module.name)
 
