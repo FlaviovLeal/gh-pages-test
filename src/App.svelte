@@ -1,6 +1,8 @@
 <script>
 import { genEnconter } from "./genEnconter";
 import { displayDifficulty, allSets, getElementsfromSet, UpdateAllElementsFromSet } from "./auxiliar"
+import { allElements } from "./data.js"
+    import { element } from "svelte/internal";
 
 let difficult = 10
 let moduleNumber = 2
@@ -28,16 +30,17 @@ $: textDifficulty = displayDifficulty(difficult)
   <button on:click={setEnconter}>Generate Enconter</button>
   <p>Number of players</p>
   <input type="checkbox" bind:checked={solo}>
-  <p>{#if solo} Solo {:else} Multiplayer {/if}
-  </p>
-  {#each allSets as set}
-  <!-- on:click happens before the bind checked -->
+  <p>{#if solo} Solo {:else} Multiplayer {/if}</p>
+
+  {#each allSets($allElements) as set}
   <b>{set.name}</b>
-  <button on:click={() => UpdateAllElementsFromSet(set.name, true) }> select all </button>
-  <button on:click={() => UpdateAllElementsFromSet(set.name, false) }> select none </button><br>
-  {#each getElementsfromSet(set.name) as element}
-  {element.name} <input type="checkbox" bind:checked={element.enabled}><br>
-  {/each}
+  <button on:click={() => {$allElements = UpdateAllElementsFromSet($allElements, true)} }> select all </button>
+  <button on:click={() => {$allElements = UpdateAllElementsFromSet($allElements, false)} }> select none </button><br>
+    {#each $allElements as element}
+      {#if element.set === set.name}
+        {element.name} <input type="checkbox" bind:checked={element.enabled}><br>
+      {/if}
+    {/each}
   {/each}
 </div>
 

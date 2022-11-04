@@ -1,3 +1,5 @@
+import { writable } from 'svelte/store'
+
 class EnconterElement {
   constructor (type, set, name, difficulty, difficultyMultiplayer, difficultySolo) {
     this.type = type
@@ -20,7 +22,7 @@ export function extractType (elementList, type) {
   return elementList.filter(item => item.type === type)
 }
 
-export const allElements = [
+export const allElements = writable([
   new EnconterElement('villain', 'Core Set', 'Rhino', undefined, 6, 0),
   new EnconterElement('villain', 'Core Set', 'Klaw', undefined, 10, 3),
   new EnconterElement('villain', 'Core Set', 'Ultron', undefined, 9, 12),
@@ -106,4 +108,4 @@ export const allElements = [
   new EnconterElement('adjustment', 'Core Set', 'Skirmish Level 2', -6),
   new EnconterElement('adjustment', 'The Hood', 'Standard II', 7),
   new EnconterElement('adjustment', 'The Hood', 'Expert II', 14)
-]
+])
