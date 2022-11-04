@@ -1,4 +1,4 @@
-import { allAdjustments, allVillains, allModules } from './data.js'
+import { allElements, extractType } from './data.js'
 
 class Enconter {
   constructor () {
@@ -7,12 +7,8 @@ class Enconter {
     this.adjustment = undefined
   };
 
-  calc_difficulty () {
-    let difficulty = 0
-    if (this.villain !== undefined) { difficulty = difficulty + this.villain.difficulty }
-    for (let i = 0; i < this.module.length; i++) { difficulty = difficulty + this.module[i].difficulty }
-    if (this.adjustment !== undefined) { difficulty = difficulty + this.adjustment.difficulty }
-    return difficulty
+  calc_difficulty (solo) {
+    return this.villain.getDifficulty(solo) + this.module.reduce((a, b) => a + b.getDifficulty(solo), 0) + this.adjustment.getDifficulty(solo)
   };
 
   addVillain (villain) { this.villain = villain };
@@ -23,19 +19,15 @@ class Enconter {
 /**
  * Pick random element from list between target error.
  * Otherwise, closest element.
- * @param  {{difficulty: number}[]} elementList [List of objects with difficulty attribute]
- * @param  {number} target [target difficulty]
- * @param  {number} error [Acceptable error]
- * @return {object}      [Object]
  */
-function pickElement (elementList, target = undefined, error = undefined) {
+function pickElement (elementList, target = undefined, error = undefined, solo) {
   let filteredList = []
 
   // Pick random target inside range
   if (target === undefined || error === undefined) {
     filteredList = elementList
   } else {
-    filteredList.map(item => (item.difficulty >= target - error && item.difficulty <= target + error))
+    filteredList.map(item => (item.getDifficulty(solo) >= target - error && item.getDifficulty(solo) <= target + error))
   }
 
   if (filteredList.length > 0) {
@@ -43,13 +35,13 @@ function pickElement (elementList, target = undefined, error = undefined) {
   }
 
   // Pick next best option
-  let diff = Math.abs(target - elementList[0].difficulty)
+  let diff = Math.abs(target - elementList[0].getDifficulty(solo))
   let bestAdjustments = elementList[0]
 
   for (let i = 0; i < elementList.length; i++) {
-    if (Math.abs(target - elementList[i].difficulty) < diff) {
+    if (Math.abs(target - elementList[i].getDifficulty(solo)) < diff) {
       bestAdjustments = elementList[i]
-      diff = target - elementList[i].difficulty
+      diff = target - elementList[i].getDifficulty(solo)
     }
   }
   return bestAdjustments
@@ -58,25 +50,28 @@ function pickElement (elementList, target = undefined, error = undefined) {
 export function genEnconter (settings) {
   const difficulty = settings.difficulty
   const moduleNumber = settings.moduleNumber
-  const modulesCopy = [...allModules]
+  const solo = settings.solo
+  const allModules = extractType(allElements, 'modules')
+  const allAdjustments = extractType(allElements, 'adjustments')
+  const allVillains = extractType(allElements, 'villain')
   const enconter = new Enconter()
 
-  let maxAdjustment = allAdjustments[0].difficulty
-  let minAdjustment = allAdjustments[0].difficulty
+  let maxAdjustment = allAdjustments[0].getDifficulty(solo)
+  let minAdjustment = allAdjustments[0].getDifficulty(solo)
   for (let i = 0; i < allAdjustments.length; i++) {
     const adjustment = allAdjustments[i]
-    if (adjustment.difficulty > maxAdjustment) { maxAdjustment = adjustment.difficulty }
-    if (adjustment.difficulty < minAdjustment) { minAdjustment = adjustment.difficulty }
+    if (adjustment.getDifficulty(solo) > maxAdjustment) { maxAdjustment = adjustment.getDifficulty(solo) }
+    if (adjustment.getDifficulty(solo) < minAdjustment) { minAdjustment = adjustment.getDifficulty(solo) }
   }
-  let filteredVillains = allVillains.filter(enconter => (enconter.difficulty <= difficulty + maxAdjustment && enconter.difficulty >= difficulty + minAdjustment))
+  let filteredVillains = allVillains.filter(enconter => (enconter.getDifficulty(solo) <= difficulty + maxAdjustment && enconter.getDifficulty(solo) >= difficulty + minAdjustment))
   filteredVillains = filteredVillains.filter(villain => settings.solo === villain.solo)
 
   enconter.addVillain(pickElement(filteredVillains))
 
   for (let i = 0; i < Math.round(moduleNumber * 2 / 3); i++) {
-    const index = Math.floor(Math.random() * modulesCopy.length)
-    enconter.addModule(modulesCopy[index])
-    modulesCopy.splice(index, 1)
+    const index = Math.floor(Math.random() * allModules.length)
+    enconter.addModule(allModules[index])
+    allModules.splice(index, 1)
   }
 
   let target = difficulty - enconter.calc_difficulty()
@@ -84,11 +79,11 @@ export function genEnconter (settings) {
 
   for (let i = 0; i < Math.round(moduleNumber * 1 / 3); i++) {
     target = difficulty - enconter.calc_difficulty()
-    const module = pickElement(modulesCopy, target, 2)
+    const module = pickElement(allModules, target, 2)
     const index = allModules.findIndex(i => i.name === module.name)
 
     enconter.addModule(module)
-    modulesCopy.splice(index, 1)
+    allModules.splice(index, 1)
   }
 
   return enconter

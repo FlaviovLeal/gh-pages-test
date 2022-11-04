@@ -1,15 +1,12 @@
 <script>
 import { genEnconter } from "./genEnconter";
-import { displayDifficulty, allElements, setEnabled, allSets, getElementsfromSet} from "./auxiliar"
-    import { element } from "svelte/internal";
+import { displayDifficulty, allSets, getElementsfromSet, UpdateAllElementsFromSet } from "./auxiliar"
 
 let difficult = 10
 let moduleNumber = 2
 let enconterGenerated = false
 let enconter
 let solo = true
-
-setEnabled(allElements)
 
 function setEnconter(){
   enconter = genEnconter({difficulty:difficult, moduleNumber:moduleNumber, solo:solo})
@@ -34,7 +31,10 @@ $: textDifficulty = displayDifficulty(difficult)
   <p>{#if solo} Solo {:else} Multiplayer {/if}
   </p>
   {#each allSets as set}
-  <b>{set.name}</b> <input type="checkbox" bind:checked={set.enabled}><br>
+  <!-- on:click happens before the bind checked -->
+  <b>{set.name}</b>
+  <button on:click={() => UpdateAllElementsFromSet(set.name, true) }> select all </button>
+  <button on:click={() => UpdateAllElementsFromSet(set.name, false) }> select none </button><br>
   {#each getElementsfromSet(set.name) as element}
   {element.name} <input type="checkbox" bind:checked={element.enabled}><br>
   {/each}

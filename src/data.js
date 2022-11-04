@@ -1,631 +1,109 @@
-export const allVillains = [
-  {
-    solo: true,
-    set: 'Core Set',
-    name: 'Rhino',
-    difficulty: 6
-  },
-  {
-    solo: true,
-    set: 'Core Set',
-    name: 'Klaw',
-    difficulty: 10
-  },
-  {
-    solo: true,
-    set: 'Core Set',
-    name: 'Ultron',
-    difficulty: 9
-  },
-  {
-    solo: true,
-    set: 'Wrecking Crew',
-    name: 'Wrecking Crew',
-    difficulty: -2
-  },
-  {
-    solo: true,
-    set: 'Green Goblin',
-    name: 'Risky Business',
-    difficulty: 0
-  },
-  {
-    solo: true,
-    set: 'Green Goblin',
-    name: 'Mutagen Formula',
-    difficulty: 11
-  },
-  {
-    solo: true,
-    set: 'Rise of Red Skull',
-    name: 'Crossbones',
-    difficulty: 3
-  },
-  {
-    solo: true,
-    set: 'Rise of Red Skull',
-    name: 'Absorbing Man',
-    difficulty: 2
-  },
-  {
-    solo: true,
-    set: 'Rise of Red Skull',
-    name: 'Taskmaster',
-    difficulty: 4
-  },
-  {
-    solo: true,
-    set: 'Rise of Red Skull',
-    name: 'Zola',
-    difficulty: 14
-  },
-  {
-    solo: true,
-    set: 'Rise of Red Skull',
-    name: 'Red Skull',
-    difficulty: 14
-  },
-  {
-    solo: true,
-    set: 'Kang',
-    name: 'Kang',
-    difficulty: 10
-  },
-  {
-    solo: true,
-    set: "Galaxy's Most Wanted",
-    name: 'Brotherhood of Badoon',
-    difficulty: -1
-  },
-  {
-    solo: true,
-    set: "Galaxy's Most Wanted",
-    name: 'Infiltrate the Museum',
-    difficulty: 10
-  },
-  {
-    solo: true,
-    set: "Galaxy's Most Wanted",
-    name: 'Escape the Museum',
-    difficulty: 8
-  },
-  {
-    solo: true,
-    set: "Galaxy's Most Wanted",
-    name: 'Nebula',
-    difficulty: 13
-  },
-  {
-    solo: true,
-    set: "Galaxy's Most Wanted",
-    name: 'Ronan the Accuser',
-    difficulty: 23
-  },
-  {
-    solo: true,
-    set: "Galaxy's Most Wanted",
-    name: 'Ebony Maw',
-    difficulty: 5
-  },
-  {
-    solo: true,
-    set: "Galaxy's Most Wanted",
-    name: 'Tower Defense',
-    difficulty: -2
-  },
-  {
-    solo: true,
-    set: "Galaxy's Most Wanted",
-    name: 'Thanos',
-    difficulty: 3
-  },
-  {
-    solo: true,
-    set: "Galaxy's Most Wanted",
-    name: 'Hela',
-    difficulty: 5
-  },
-  {
-    solo: true,
-    set: "Galaxy's Most Wanted",
-    name: 'Loki',
-    difficulty: 13
-  },
-  {
-    solo: true,
-    set: 'The Hood',
-    name: 'The Hood',
-    difficulty: 6
-  },
-  {
-    solo: true,
-    set: 'Sinister Motives',
-    name: 'Sandman',
-    difficulty: 3
-  },
-  {
-    solo: true,
-    set: 'Sinister Motives',
-    name: 'Venom',
-    difficulty: 12
-  },
-  {
-    solo: true,
-    set: 'Sinister Motives',
-    name: 'Mysterio',
-    difficulty: -2
-  },
-  {
-    solo: true,
-    set: 'Sinister Motives',
-    name: 'The Sinister Six',
-    difficulty: 6
-  },
-  {
-    solo: true,
-    set: 'Sinister Motives',
-    name: 'Venom Goblin',
-    difficulty: 12
-  },
-  {
-    solo: false,
-    set: 'Core Set',
-    name: 'Rhino',
-    difficulty: 0
-  },
-  {
-    solo: false,
-    set: 'Core Set',
-    name: 'Klaw',
-    difficulty: 3
-  },
-  {
-    solo: false,
-    set: 'Core Set',
-    name: 'Ultron',
-    difficulty: 12
-  },
-  {
-    solo: false,
-    set: 'Wrecking Crew',
-    name: 'Wrecking Crew',
-    difficulty: 2
-  },
-  {
-    solo: false,
-    set: 'Green Goblin',
-    name: 'Risky Business',
-    difficulty: -1
-  },
-  {
-    solo: false,
-    set: 'Green Goblin',
-    name: 'Mutagen Formula',
-    difficulty: 10
-  },
-  {
-    solo: false,
-    set: 'Rise of Red Skull',
-    name: 'Crossbones',
-    difficulty: 0
-  },
-  {
-    solo: false,
-    set: 'Rise of Red Skull',
-    name: 'Absorbing Man',
-    difficulty: -1
-  },
-  {
-    solo: false,
-    set: 'Rise of Red Skull',
-    name: 'Taskmaster',
-    difficulty: 5
-  },
-  {
-    solo: false,
-    set: 'Rise of Red Skull',
-    name: 'Zola',
-    difficulty: 9
-  },
-  {
-    solo: false,
-    set: 'Rise of Red Skull',
-    name: 'Red Skull',
-    difficulty: 16
-  },
-  {
-    solo: false,
-    set: 'Kang',
-    name: 'Kang',
-    difficulty: 9
-  },
-  {
-    solo: false,
-    set: "Galaxy's Most Wanted",
-    name: 'Brotherhood of Badoon',
-    difficulty: 6
-  },
-  {
-    solo: false,
-    set: "Galaxy's Most Wanted",
-    name: 'Infiltrate the Museum',
-    difficulty: 8
-  },
-  {
-    solo: false,
-    set: "Galaxy's Most Wanted",
-    name: 'Escape the Museum',
-    difficulty: 10
-  },
-  {
-    solo: false,
-    set: "Galaxy's Most Wanted",
-    name: 'Nebula',
-    difficulty: 16
-  },
-  {
-    solo: false,
-    set: "Galaxy's Most Wanted",
-    name: 'Ronan the Accuser',
-    difficulty: 22
-  },
-  {
-    solo: false,
-    set: "Galaxy's Most Wanted",
-    name: 'Ebony Maw',
-    difficulty: 9
-  },
-  {
-    solo: false,
-    set: "Galaxy's Most Wanted",
-    name: 'Tower Defense',
-    difficulty: -1
-  },
-  {
-    solo: false,
-    set: "Galaxy's Most Wanted",
-    name: 'Thanos',
-    difficulty: 4
-  },
-  {
-    solo: false,
-    set: "Galaxy's Most Wanted",
-    name: 'Hela',
-    difficulty: 3
-  },
-  {
-    solo: false,
-    set: "Galaxy's Most Wanted",
-    name: 'Loki',
-    difficulty: 13
-  },
-  {
-    solo: false,
-    set: 'The Hood',
-    name: 'The Hood',
-    difficulty: 6
-  },
-  {
-    solo: false,
-    set: 'Sinister Motives',
-    name: 'Sandman',
-    difficulty: 0
-  },
-  {
-    solo: false,
-    set: 'Sinister Motives',
-    name: 'Venom',
-    difficulty: 1
-  },
-  {
-    solo: false,
-    set: 'Sinister Motives',
-    name: 'Mysterio',
-    difficulty: -3
-  },
-  {
-    solo: false,
-    set: 'Sinister Motives',
-    name: 'The Sinister Six',
-    difficulty: 2
-  },
-  {
-    solo: false,
-    set: 'Sinister Motives',
-    name: 'Venom Goblin',
-    difficulty: 15
+class EnconterElement {
+  constructor (type, set, name, difficulty, difficultyMultiplayer, difficultySolo) {
+    this.type = type
+    this.set = set
+    this.name = name
+    this.difficulty = difficulty
+    this.difficultyMultiplayer = difficultyMultiplayer
+    this.difficultySolo = difficultySolo
+    this.enabled = true
+  };
+
+  getDifficulty (solo) {
+    if (this.difficulty !== undefined) { return this.difficulty } else {
+      if (solo) { return this.difficultySolo } else { return this.difficultyMultiplayer }
+    }
   }
+};
 
-]
+export function extractType (elementList, type) {
+  return elementList.filter(item => item.type === type)
+}
 
-export const allModules = [
-  {
-    set: 'Core Set',
-    name: 'Bomb Scare',
-    difficulty: -3
-  },
-  {
-    set: 'Core Set',
-    name: 'Masters of Evil',
-    difficulty: 1
-  },
-  {
-    set: 'Core Set',
-    name: 'Under Attack',
-    difficulty: 1
-  },
-  {
-    set: 'Core Set',
-    name: 'Legions of Hydra',
-    difficulty: 4
-  },
-  {
-    set: 'Core Set',
-    name: 'Doomsday Chair',
-    difficulty: 3
-  },
-  {
-    set: 'Green Goblin',
-    name: 'Goblin Gimmicks',
-    difficulty: -4
-  },
-  {
-    set: 'Green Goblin',
-    name: 'Mess of Things',
-    difficulty: 0
-  },
-  {
-    set: 'Green Goblin',
-    name: 'Power Drain',
-    difficulty: -3
-  },
-  {
-    set: 'Green Goblin',
-    name: 'Running Interference',
-    difficulty: -1
-  },
-  {
-    set: 'Green Goblin',
-    name: 'Kree Fanatic',
-    difficulty: 8
-  },
-  {
-    set: 'Rise of Red Skull',
-    name: 'Experimental Weapons',
-    difficulty: -2
-  },
-  {
-    set: 'Rise of Red Skull',
-    name: 'Hydra Assault',
-    difficulty: -2
-  },
-  {
-    set: 'Rise of Red Skull',
-    name: 'Hydra Patrol',
-    difficulty: -1
-  },
-  {
-    set: 'Rise of Red Skull',
-    name: 'Weapon Master',
-    difficulty: 0
-  },
-  {
-    set: 'Kang',
-    name: 'Temporal',
-    difficulty: -3
-  },
-  {
-    set: 'Kang',
-    name: 'Master of Time',
-    difficulty: 0
-  },
-  {
-    set: 'Kang',
-    name: 'Anachronauts',
-    difficulty: 1
-  },
-  {
-    set: "Galaxy's Most Wanted",
-    name: 'Band of Badoon',
-    difficulty: -3
-  },
-  {
-    set: "Galaxy's Most Wanted",
-    name: 'Menagerie Medley',
-    difficulty: 3
-  },
-  {
-    set: "Galaxy's Most Wanted",
-    name: 'Galactic Artifacts',
-    difficulty: 0
-  },
-  {
-    set: "Galaxy's Most Wanted",
-    name: 'Space Pirates',
-    difficulty: -1
-  },
-  {
-    set: "Galaxy's Most Wanted",
-    name: 'Kree Militants',
-    difficulty: -3
-  },
-  {
-    set: "Galaxy's Most Wanted",
-    name: 'Ship Command',
-    difficulty: 0
-  },
-  {
-    set: "Galaxy's Most Wanted",
-    name: 'Badoon Headhunter',
-    difficulty: -2
-  },
-  {
-    set: "Mad Titan's Shadow",
-    name: 'Black Order',
-    difficulty: 1
-  },
-  {
-    set: "Mad Titan's Shadow",
-    name: 'Armies of Titan',
-    difficulty: -3
-  },
-  {
-    set: "Mad Titan's Shadow",
-    name: 'Children of Thanos',
-    difficulty: 3
-  },
-  {
-    set: "Mad Titan's Shadow",
-    name: 'Legions of Hel',
-    difficulty: -2
-  },
-  {
-    set: "Mad Titan's Shadow",
-    name: 'Frost Giants',
-    difficulty: 3
-  },
-  {
-    set: "Mad Titan's Shadow",
-    name: 'Enchantress',
-    difficulty: 6
-  },
-  {
-    set: "Mad Titan's Shadow",
-    name: 'Infinity Gauntlet',
-    difficulty: 7
-  },
-  {
-    set: 'The Hood',
-    name: 'Beasty Boys',
-    difficulty: 1
-  },
-  {
-    set: 'The Hood',
-    name: 'Brothers Grimm',
-    difficulty: 1
-  },
-  {
-    set: 'The Hood',
-    name: "Crossfire's Crew",
-    difficulty: 2
-  },
-  {
-    set: 'The Hood',
-    name: 'Mister Hyde',
-    difficulty: -3
-  },
-  {
-    set: 'The Hood',
-    name: 'Ransacked Armory',
-    difficulty: -3
-  },
-  {
-    set: 'The Hood',
-    name: 'Sinister Syndicate',
-    difficulty: 0
-  },
-  {
-    set: 'The Hood',
-    name: 'State of Emergency',
-    difficulty: 0
-  },
-  {
-    set: 'The Hood',
-    name: 'Streets of Mayhem',
-    difficulty: 2
-  },
-  {
-    set: 'The Hood',
-    name: 'Wrecking Crew',
-    difficulty: 2
-  },
-  {
-    set: 'Sinister Motives',
-    name: 'City in Chaos',
-    difficulty: 4
-  },
-  {
-    set: 'Sinister Motives',
-    name: 'Down to Earth',
-    difficulty: -2
-  },
-  {
-    set: 'Sinister Motives',
-    name: 'Goblin Gear',
-    difficulty: 5
-  },
-  {
-    set: 'Sinister Motives',
-    name: 'Guerrilla Tactics',
-    difficulty: 2
-  },
-  {
-    set: 'Sinister Motives',
-    name: 'Osborn Tech',
-    difficulty: 0
-  },
-  {
-    set: 'Sinister Motives',
-    name: 'Personal Nightmare',
-    difficulty: 2
-  },
-  {
-    set: 'Sinister Motives',
-    name: 'Symbiotic Strength',
-    difficulty: 4
-  },
-  {
-    set: 'Sinister Motives',
-    name: 'Whispers of Paranoia',
-    difficulty: 4
-  },
-  {
-    set: 'Hero Packs',
-    name: 'Armadillo',
-    difficulty: 2
-  },
-  {
-    set: 'Hero Packs',
-    name: 'Zzzax',
-    difficulty: -1
-  }
-
-]
-
-export const allAdjustments = [
-  {
-    set: 'Core Set',
-    name: 'Standard',
-    difficulty: 0
-  },
-  {
-    set: 'Core Set',
-    name: 'Expert',
-    difficulty: 5
-  },
-  {
-    set: 'Core Set',
-    name: 'Heroic (per level)',
-    difficulty: 9
-  },
-  {
-    set: 'Core Set',
-    name: 'Skirmish Level 1',
-    difficulty: -16
-  },
-  {
-    set: 'Core Set',
-    name: 'Skirmish Level 2',
-    difficulty: -6
-  },
-  {
-    set: 'The Hood',
-    name: 'Standard II',
-    difficulty: 7
-  },
-  {
-    set: 'The Hood',
-    name: 'Expert II',
-    difficulty: 14
-  }
+export const allElements = [
+  new EnconterElement('villain', 'Core Set', 'Rhino', undefined, 6, 0),
+  new EnconterElement('villain', 'Core Set', 'Klaw', undefined, 10, 3),
+  new EnconterElement('villain', 'Core Set', 'Ultron', undefined, 9, 12),
+  new EnconterElement('villain', 'Wrecking Crew', 'Wrecking Crew', undefined, -2, 2),
+  new EnconterElement('villain', 'Green Goblin', 'Risky Business', undefined, 0, -1),
+  new EnconterElement('villain', 'Green Goblin', 'Mutagen Formula', undefined, 11, 10),
+  new EnconterElement('villain', 'Rise of Red Skull', 'Crossbones', undefined, 3, 0),
+  new EnconterElement('villain', 'Rise of Red Skull', 'Absorbing Man', undefined, 2, -1),
+  new EnconterElement('villain', 'Rise of Red Skull', 'Taskmaster', undefined, 4, 5),
+  new EnconterElement('villain', 'Rise of Red Skull', 'Zola', undefined, 14, 9),
+  new EnconterElement('villain', 'Rise of Red Skull', 'Red Skull', undefined, 14, 16),
+  new EnconterElement('villain', 'Kang', 'Kang', undefined, 10, 9),
+  new EnconterElement('villain', "Galaxy's Most Wanted", 'Brotherhood of Badoon', undefined, -1, 6),
+  new EnconterElement('villain', "Galaxy's Most Wanted", 'Infiltrate the Museum', undefined, 10, 8),
+  new EnconterElement('villain', "Galaxy's Most Wanted", 'Escape the Museum', undefined, 8, 10),
+  new EnconterElement('villain', "Galaxy's Most Wanted", 'Nebula', undefined, 13, 16),
+  new EnconterElement('villain', "Galaxy's Most Wanted", 'Ronan the Accuser', undefined, 23, 22),
+  new EnconterElement('villain', "Galaxy's Most Wanted", 'Ebony Maw', undefined, 5, 9),
+  new EnconterElement('villain', "Galaxy's Most Wanted", 'Tower Defense', undefined, -2, -1),
+  new EnconterElement('villain', "Galaxy's Most Wanted", 'Thanos', undefined, 3, 4),
+  new EnconterElement('villain', "Galaxy's Most Wanted", 'Hela', undefined, 5, 3),
+  new EnconterElement('villain', "Galaxy's Most Wanted", 'Loki', undefined, 13, 13),
+  new EnconterElement('villain', 'The Hood', 'The Hood', undefined, 6, 6),
+  new EnconterElement('villain', 'Sinister Motives', 'Sandman', undefined, 3, 0),
+  new EnconterElement('villain', 'Sinister Motives', 'Venom', undefined, 12, 1),
+  new EnconterElement('villain', 'Sinister Motives', 'Mysterio', undefined, -2, -3),
+  new EnconterElement('villain', 'Sinister Motives', 'The Sinister Six', undefined, 6, 2),
+  new EnconterElement('villain', 'Sinister Motives', 'Venom Goblin', undefined, 12, 15),
+  new EnconterElement('module', 'Core Set', 'Bomb Scare', -3),
+  new EnconterElement('module', 'Core Set', 'Masters of Evil', 1),
+  new EnconterElement('module', 'Core Set', 'Under Attack', 1),
+  new EnconterElement('module', 'Core Set', 'Legions of Hydra', 4),
+  new EnconterElement('module', 'Core Set', 'Doomsday Chair', 3),
+  new EnconterElement('module', 'Green Goblin', 'Goblin Gimmicks', -4),
+  new EnconterElement('module', 'Green Goblin', 'Mess of Things', 0),
+  new EnconterElement('module', 'Green Goblin', 'Power Drain', -3),
+  new EnconterElement('module', 'Green Goblin', 'Running Interference', -1),
+  new EnconterElement('module', 'Green Goblin', 'Kree Fanatic', 8),
+  new EnconterElement('module', 'Rise of Red Skull', 'Experimental Weapons', -2),
+  new EnconterElement('module', 'Rise of Red Skull', 'Hydra Assault', -2),
+  new EnconterElement('module', 'Rise of Red Skull', 'Hydra Patrol', -1),
+  new EnconterElement('module', 'Rise of Red Skull', 'Weapon Master', 0),
+  new EnconterElement('module', 'Kang', 'Temporal', -3),
+  new EnconterElement('module', 'Kang', 'Master of Time', 0),
+  new EnconterElement('module', 'Kang', 'Anachronauts', 1),
+  new EnconterElement('module', "Galaxy's Most Wanted", 'Band of Badoon', -3),
+  new EnconterElement('module', "Galaxy's Most Wanted", 'Menagerie Medley', 3),
+  new EnconterElement('module', "Galaxy's Most Wanted", 'Galactic Artifacts', 0),
+  new EnconterElement('module', "Galaxy's Most Wanted", 'Space Pirates', -1),
+  new EnconterElement('module', "Galaxy's Most Wanted", 'Kree Militants', -3),
+  new EnconterElement('module', "Galaxy's Most Wanted", 'Ship Command', 0),
+  new EnconterElement('module', "Galaxy's Most Wanted", 'Badoon Headhunter', -2),
+  new EnconterElement('module', "Mad Titan's Shadow", 'Black Order', 1),
+  new EnconterElement('module', "Mad Titan's Shadow", 'Armies of Titan', -3),
+  new EnconterElement('module', "Mad Titan's Shadow", 'Children of Thanos', 3),
+  new EnconterElement('module', "Mad Titan's Shadow", 'Legions of Hel', -2),
+  new EnconterElement('module', "Mad Titan's Shadow", 'Frost Giants', 3),
+  new EnconterElement('module', "Mad Titan's Shadow", 'Enchantress', 6),
+  new EnconterElement('module', "Mad Titan's Shadow", 'Infinity Gauntlet', 7),
+  new EnconterElement('module', 'The Hood', 'Beasty Boys', 1),
+  new EnconterElement('module', 'The Hood', 'Brothers Grimm', 1),
+  new EnconterElement('module', 'The Hood', "Crossfire's Crew", 2),
+  new EnconterElement('module', 'The Hood', 'Mister Hyde', -3),
+  new EnconterElement('module', 'The Hood', 'Ransacked Armory', -3),
+  new EnconterElement('module', 'The Hood', 'Sinister Syndicate', 0),
+  new EnconterElement('module', 'The Hood', 'State of Emergency', 0),
+  new EnconterElement('module', 'The Hood', 'Streets of Mayhem', 2),
+  new EnconterElement('module', 'The Hood', 'Wrecking Crew', 2),
+  new EnconterElement('module', 'Sinister Motives', 'City in Chaos', 4),
+  new EnconterElement('module', 'Sinister Motives', 'Down to Earth', -2),
+  new EnconterElement('module', 'Sinister Motives', 'Goblin Gear', 5),
+  new EnconterElement('module', 'Sinister Motives', 'Guerrilla Tactics', 2),
+  new EnconterElement('module', 'Sinister Motives', 'Osborn Tech', 0),
+  new EnconterElement('module', 'Sinister Motives', 'Personal Nightmare', 2),
+  new EnconterElement('module', 'Sinister Motives', 'Symbiotic Strength', 4),
+  new EnconterElement('module', 'Sinister Motives', 'Whispers of Paranoia', 4),
+  new EnconterElement('module', 'Hero Packs', 'Armadillo', 2),
+  new EnconterElement('module', 'Hero Packs', 'Zzzax', -1),
+  new EnconterElement('adjustment', 'Core Set', 'Standard', 0),
+  new EnconterElement('adjustment', 'Core Set', 'Expert', 5),
+  new EnconterElement('adjustment', 'Core Set', 'Heroic (per level)', 9),
+  new EnconterElement('adjustment', 'Core Set', 'Skirmish Level 1', -16),
+  new EnconterElement('adjustment', 'Core Set', 'Skirmish Level 2', -6),
+  new EnconterElement('adjustment', 'The Hood', 'Standard II', 7),
+  new EnconterElement('adjustment', 'The Hood', 'Expert II', 14)
 ]
