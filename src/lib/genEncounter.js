@@ -1,6 +1,6 @@
 import { extractType } from './data.js'
 
-class Enconter {
+class Encounter {
   constructor () {
     this.villain = undefined
     this.module = []
@@ -87,11 +87,11 @@ function adjustmentPossibilities (allElements) {
   return adjustmentPossibilitiesList
 }
 
-export function genEnconter (settings, allElementsUnfiltered) {
+export function genEncounter (settings, allElementsUnfiltered) {
   const difficulty = settings.difficulty
   let moduleNumber = settings.moduleNumber
   const solo = settings.solo
-  const enconter = new Enconter()
+  const encounter = new Encounter()
   const allElements = allElementsUnfiltered.filter(item => item.enabled)
   const allModules = extractType(allElements, 'module')
   const allVillains = extractType(allElements, 'villain')
@@ -109,12 +109,12 @@ export function genEnconter (settings, allElementsUnfiltered) {
     target = difficulty
   }
   const villain = pickElement(allVillains, target, error, solo)
-  enconter.addVillain(villain)
+  encounter.addVillain(villain)
   console.log(villain.obligatoryModules)
 
   for (let i = 0; i < villain.obligatoryModules.length; i++) {
     const module = allElementsUnfiltered.find(element => element.type === 'module' && villain.obligatoryModules[i] === element.name)
-    enconter.addModule(module)
+    encounter.addModule(module)
     const index = allModules.findIndex(i => i.name === module.name)
     allModules.splice(index, 1)
   }
@@ -129,25 +129,25 @@ export function genEnconter (settings, allElementsUnfiltered) {
   for (let i = 0; i < Math.round(moduleNumber * moduleAdjustment); i++) {
     const index = Math.floor(Math.random() * allModules.length)
     console.log(allModules[index].name, allModules[index].getDifficulty(solo))
-    enconter.addModule(allModules[index])
+    encounter.addModule(allModules[index])
     allModules.splice(index, 1)
   }
-  target = difficulty - enconter.calc_difficulty(solo)
+  target = difficulty - encounter.calc_difficulty(solo)
   const adjustment = pickElement(adjustmentPossibilitiesList, target, 0, solo)
-  enconter.addAdjustment(adjustment)
+  encounter.addAdjustment(adjustment)
   console.log('adjustment', adjustment.getDifficulty(solo))
 
   for (let i = 0; i < Math.round(moduleNumber * (1 - moduleAdjustment)); i++) {
     console.log('Difficulty', difficulty)
-    console.log('Enconter', enconter.calc_difficulty(solo))
-    target = difficulty - enconter.calc_difficulty(solo)
+    console.log('Encounter', encounter.calc_difficulty(solo))
+    target = difficulty - encounter.calc_difficulty(solo)
     console.log('Target module')
     const module = pickElement(allModules, target, 1, solo)
     const index = allModules.findIndex(i => i.name === module.name)
 
-    enconter.addModule(module)
+    encounter.addModule(module)
     allModules.splice(index, 1)
     console.log(module.name, module.getDifficulty(solo))
   }
-  return enconter
+  return encounter
 }

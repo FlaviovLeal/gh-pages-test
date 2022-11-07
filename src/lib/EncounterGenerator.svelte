@@ -1,17 +1,17 @@
 <script>
-    import { genEnconter } from "./genEnconter.js";
+    import { genEncounter } from "./genEncounter.js";
     import { displayDifficulty } from "./auxiliar.js"
     import { allElements } from "./data.js"
 
     let difficult = 10
     let moduleNumber = 2
-    let enconterGenerated = false
-    let enconter
+    let encounterGenerated = false
+    let encounter
     let solo = true
 
-    function setEnconter(){
-      enconter = genEnconter({difficulty:difficult, moduleNumber:moduleNumber, solo:solo}, $allElements)
-      enconterGenerated = true
+    function setEncounter(){
+      encounter = genEncounter({difficulty:difficult, moduleNumber:moduleNumber, solo:solo}, $allElements)
+      encounterGenerated = true
     }
 
     $: textDifficulty = displayDifficulty(difficult)
@@ -26,21 +26,21 @@
       <p>Module Number</p>
       <input type="range" bind:value={moduleNumber} min="1" max="10" class="slider" id="myRange">
       <p>{moduleNumber}</p>
-      <button on:click={setEnconter}>Generate Enconter</button>
+      <button on:click={setEncounter}>Generate Encounter</button>
       <p>Number of players</p>
       <input type="checkbox" bind:checked={solo}>
       <p>{#if solo} Solo {:else} Multiplayer {/if}</p>
 
-    {#if enconterGenerated}
-    <p>Enconter: {enconter.villain["name"] } - ({enconter.villain.set})</p>
+    {#if encounterGenerated}
+    <p>Encounter: {encounter.villain["name"] } - ({encounter.villain.set})</p>
     <p>Modules:</p>
-    {#each enconter.module as module }
+    {#each encounter.module as module }
         <p>{module.name} - ({module.set})</p>
     {/each}
-    <p>Mode: {enconter.adjustment.standard.name}</p>
-    <p>Mode: {enconter.adjustment.expert.name}</p>
-    <p>Mode: {enconter.adjustment.skirmish.name}</p>
-    <p>Enconter Difficulty: {enconter.calc_difficulty(solo)}</p>
+    <p>Mode: {encounter.adjustment.standard.name}</p>
+    <p>Mode: {encounter.adjustment.expert.name}</p>
+    <p>Mode: {encounter.adjustment.skirmish.name}</p>
+    <p>Encounter Difficulty: {encounter.calc_difficulty(solo)}</p>
     {/if}
 
     </main>
