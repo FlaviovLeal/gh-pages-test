@@ -17,6 +17,5 @@ Hosted on github pages
 
 <br><br>
 <b> Planned Features </b><br>
-Collection saving after refresh<br>
-Adjustment allowing all possibilities<br>
+Improving looks<br>
 </main>

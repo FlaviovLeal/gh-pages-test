@@ -101,11 +101,17 @@ export const allElements = writable([
   new EnconterElement('module', 'Sinister Motives', 'Whispers of Paranoia', 4),
   new EnconterElement('module', 'Hero Packs', 'Armadillo', 2),
   new EnconterElement('module', 'Hero Packs', 'Zzzax', -1),
-  new EnconterElement('adjustment', 'Core Set', 'Standard', 0),
-  new EnconterElement('adjustment', 'Core Set', 'Expert', 5),
-  new EnconterElement('adjustment', 'Core Set', 'Heroic (per level)', 9),
-  new EnconterElement('adjustment', 'Core Set', 'Skirmish Level 1', -16),
-  new EnconterElement('adjustment', 'Core Set', 'Skirmish Level 2', -6),
-  new EnconterElement('adjustment', 'The Hood', 'Standard II', 7),
-  new EnconterElement('adjustment', 'The Hood', 'Expert II', 14)
+
+  new EnconterElement('standard', 'Core Set', 'Standard I', 0),
+  new EnconterElement('standard', 'The Hood', 'Standard II', 7),
+
+  new EnconterElement('expert', 'Core Set', 'No Expert set', 0),
+  new EnconterElement('expert', 'Core Set', 'Expert I', 5),
+  new EnconterElement('expert', 'The Hood', 'Expert II', 14),
+
+  // new EnconterElement('heroic', 'Core Set', 'Heroic', 9),
+
+  new EnconterElement('skirmish', 'Core Set', 'No Skirmish', 0),
+  new EnconterElement('skirmish', 'Core Set', 'Skirmish Level 1', -16),
+  new EnconterElement('skirmish', 'Core Set', 'Skirmish Level 2', -6)
 ])

@@ -1,3 +1,4 @@
+
 export function displayDifficulty (difficult) {
   if (difficult <= 4) { return 'Beginner' };
   if (difficult <= 10) { return 'Standard!' };
@@ -14,7 +15,7 @@ export function getElementsfromSet (elements, set) {
 
 export function UpdateAllElementsFromSet (elements, set, enabled) {
   for (let i = 0; i < elements.length; i++) {
-    if (elements[i].set === set) {
+    if (elements[i].set === set && elements[i].type !== 'standard' && elements[i].type !== 'expert' && elements[i].type !== 'skirmish') {
       elements[i].enabled = enabled
     }
   }

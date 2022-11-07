@@ -3,15 +3,16 @@ import CollectionConfig from './lib/CollectionConfig.svelte'
 import EncounterGenerator from './lib/EncounterGenerator.svelte'
 import About from './lib/About.svelte'
 let page='EncounterGenerator'
-function isActive (button) {if(page===button){return "active"}else{return "inactive"}}
+
 </script>
 
 <main>
-  <div class="topnav">
-    <button class={isActive('EncounterGenerator')} on:click={() => page='EncounterGenerator'}>Encounter Generator</button>
-    <button class={isActive('CollectionConfig')} on:click={() => page='CollectionConfig'}>Collection Config</button>
-    <button class={isActive('About')} on:click={() => page='About'}>About</button>
-  </div>
+  <div class="topnav"><nobr>
+    <button class={page === 'EncounterGenerator' ? 'active' : 'inactive'} on:click={() => page='EncounterGenerator'}>Encounter Generator
+    </button><button class={page === 'CollectionConfig' ? 'active' : 'inactive'} on:click={() => page='CollectionConfig'}>Collection Config
+    </button><button class={page === 'About' ? 'active' : 'inactive'} on:click={() => page='About'}>About</button>
+  </nobr></div>
+<br>
 <br>
 
 {#if page==='EncounterGenerator'}

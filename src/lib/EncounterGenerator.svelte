@@ -37,8 +37,10 @@
     {#each enconter.module as module }
         <p>{module.name} - ({module.set})</p>
     {/each}
-    <p>Adjustment: {enconter.adjustment["name"]}</p>
-    <p>Enconter Difficulty: {enconter.calc_difficulty()}</p>
+    <p>Mode: {enconter.adjustment.standard.name}</p>
+    <p>Mode: {enconter.adjustment.expert.name}</p>
+    <p>Mode: {enconter.adjustment.skirmish.name}</p>
+    <p>Enconter Difficulty: {enconter.calc_difficulty(solo)}</p>
     {/if}
 
     </main>
