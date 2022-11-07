@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store'
 
 class EnconterElement {
-  constructor (type, set, name, difficulty, difficultyMultiplayer, difficultySolo) {
+  constructor (type, set, name, difficulty, difficultyMultiplayer, difficultySolo, obligatoryModules) {
     this.type = type
     this.set = set
     this.name = name
@@ -9,6 +9,7 @@ class EnconterElement {
     this.difficultyMultiplayer = difficultyMultiplayer
     this.difficultySolo = difficultySolo
     this.enabled = true
+    this.obligatoryModules = obligatoryModules ?? []
   };
 
   getDifficulty (solo) {
@@ -29,28 +30,28 @@ export const allElements = writable([
   new EnconterElement('villain', 'Wrecking Crew', 'Wrecking Crew', undefined, -2, 2),
   new EnconterElement('villain', 'Green Goblin', 'Risky Business', undefined, 0, -1),
   new EnconterElement('villain', 'Green Goblin', 'Mutagen Formula', undefined, 11, 10),
-  new EnconterElement('villain', 'Rise of Red Skull', 'Crossbones', undefined, 3, 0),
+  new EnconterElement('villain', 'Rise of Red Skull', 'Crossbones', undefined, 3, 0, ['Experimental Weapons']),
   new EnconterElement('villain', 'Rise of Red Skull', 'Absorbing Man', undefined, 2, -1),
-  new EnconterElement('villain', 'Rise of Red Skull', 'Taskmaster', undefined, 4, 5),
+  new EnconterElement('villain', 'Rise of Red Skull', 'Taskmaster', undefined, 4, 5, ['Hydra Patrol']),
   new EnconterElement('villain', 'Rise of Red Skull', 'Zola', undefined, 14, 9),
   new EnconterElement('villain', 'Rise of Red Skull', 'Red Skull', undefined, 14, 16),
   new EnconterElement('villain', 'Kang', 'Kang', undefined, 10, 9),
-  new EnconterElement('villain', "Galaxy's Most Wanted", 'Brotherhood of Badoon', undefined, -1, 6),
-  new EnconterElement('villain', "Galaxy's Most Wanted", 'Infiltrate the Museum', undefined, 10, 8),
-  new EnconterElement('villain', "Galaxy's Most Wanted", 'Escape the Museum', undefined, 8, 10),
-  new EnconterElement('villain', "Galaxy's Most Wanted", 'Nebula', undefined, 13, 16),
-  new EnconterElement('villain', "Galaxy's Most Wanted", 'Ronan the Accuser', undefined, 23, 22),
-  new EnconterElement('villain', "Galaxy's Most Wanted", 'Ebony Maw', undefined, 5, 9),
-  new EnconterElement('villain', "Galaxy's Most Wanted", 'Tower Defense', undefined, -2, -1),
-  new EnconterElement('villain', "Galaxy's Most Wanted", 'Thanos', undefined, 3, 4),
-  new EnconterElement('villain', "Galaxy's Most Wanted", 'Hela', undefined, 5, 3),
-  new EnconterElement('villain', "Galaxy's Most Wanted", 'Loki', undefined, 13, 13),
+  new EnconterElement('villain', "Galaxy's Most Wanted", 'Brotherhood of Badoon', undefined, -1, 6, ['Ship Command']),
+  new EnconterElement('villain', "Galaxy's Most Wanted", 'Infiltrate the Museum', undefined, 10, 8, ['Galactic Artifacts']),
+  new EnconterElement('villain', "Galaxy's Most Wanted", 'Escape the Museum', undefined, 8, 10, ['Galactic Artifacts', 'Ship Command']),
+  new EnconterElement('villain', "Galaxy's Most Wanted", 'Nebula', undefined, 13, 16, ['Ship Command']),
+  new EnconterElement('villain', "Galaxy's Most Wanted", 'Ronan the Accuser', undefined, 23, 22, ['Ship Command']),
+  new EnconterElement('villain', "Mad Titan's Shadow", 'Ebony Maw', undefined, 5, 9),
+  new EnconterElement('villain', "Mad Titan's Shadow", 'Tower Defense', undefined, -2, -1),
+  new EnconterElement('villain', "Mad Titan's Shadow", 'Thanos', undefined, 3, 4),
+  new EnconterElement('villain', "Mad Titan's Shadow", 'Hela', undefined, 5, 3),
+  new EnconterElement('villain', "Mad Titan's Shadow", 'Loki', undefined, 13, 13, ['Infinity Gauntlet']),
   new EnconterElement('villain', 'The Hood', 'The Hood', undefined, 6, 6),
-  new EnconterElement('villain', 'Sinister Motives', 'Sandman', undefined, 3, 0),
-  new EnconterElement('villain', 'Sinister Motives', 'Venom', undefined, 12, 1),
-  new EnconterElement('villain', 'Sinister Motives', 'Mysterio', undefined, -2, -3),
+  new EnconterElement('villain', 'Sinister Motives', 'Sandman', undefined, 3, 0, ['City in Chaos']),
+  new EnconterElement('villain', 'Sinister Motives', 'Venom', undefined, 12, 1, ['Symbiotic Strength']),
+  new EnconterElement('villain', 'Sinister Motives', 'Mysterio', undefined, -2, -3, ['Personal Nightmare']),
   new EnconterElement('villain', 'Sinister Motives', 'The Sinister Six', undefined, 6, 2),
-  new EnconterElement('villain', 'Sinister Motives', 'Venom Goblin', undefined, 12, 15),
+  new EnconterElement('villain', 'Sinister Motives', 'Venom Goblin', undefined, 12, 15, ['Symbiotic Strength']),
   new EnconterElement('module', 'Core Set', 'Bomb Scare', -3),
   new EnconterElement('module', 'Core Set', 'Masters of Evil', 1),
   new EnconterElement('module', 'Core Set', 'Under Attack', 1),

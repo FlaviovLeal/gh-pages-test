@@ -87,12 +87,12 @@ function adjustmentPossibilities (allElements) {
   return adjustmentPossibilitiesList
 }
 
-export function genEnconter (settings, allElements) {
+export function genEnconter (settings, allElementsUnfiltered) {
   const difficulty = settings.difficulty
-  const moduleNumber = settings.moduleNumber
+  let moduleNumber = settings.moduleNumber
   const solo = settings.solo
   const enconter = new Enconter()
-  allElements = allElements.filter(item => item.enabled)
+  const allElements = allElementsUnfiltered.filter(item => item.enabled)
   const allModules = extractType(allElements, 'module')
   const allVillains = extractType(allElements, 'villain')
 
@@ -110,10 +110,21 @@ export function genEnconter (settings, allElements) {
   }
   const villain = pickElement(allVillains, target, error, solo)
   enconter.addVillain(villain)
+  console.log(villain.obligatoryModules)
+
+  for (let i = 0; i < villain.obligatoryModules.length; i++) {
+    const module = allElementsUnfiltered.find(element => element.type === 'module' && villain.obligatoryModules[i] === element.name)
+    enconter.addModule(module)
+    const index = allModules.findIndex(i => i.name === module.name)
+    allModules.splice(index, 1)
+  }
+  moduleNumber = moduleNumber - villain.obligatoryModules.length
+  if (moduleNumber < 0) { moduleNumber = 0 }
+
   console.log(villain.name, villain.getDifficulty(solo))
 
   let moduleAdjustment
-  if (maxAdjustment - minAdjustment < 8) { moduleAdjustment = 1 / 3 } else { moduleAdjustment = 2 / 3 }
+  if (maxAdjustment - minAdjustment < 8 || moduleNumber < 2) { moduleAdjustment = 1 / 3 } else { moduleAdjustment = 2 / 3 }
 
   for (let i = 0; i < Math.round(moduleNumber * moduleAdjustment); i++) {
     const index = Math.floor(Math.random() * allModules.length)
