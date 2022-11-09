@@ -1,4 +1,4 @@
-import { extractType } from './data.js'
+import { extractType, EncounterElement } from './data.js'
 
 class Encounter {
   constructor () {
@@ -58,14 +58,15 @@ function pickElement (elementList, target = undefined, error = undefined, solo) 
 }
 
 class AdjustmentPossibility {
-  constructor (standard, expert, skirmish) {
+  constructor (standard, expert, skirmish, heroic) {
     this.standard = standard
     this.expert = expert
     this.skirmish = skirmish
+    this.heroic = heroic
   }
 
   getDifficulty (solo) {
-    return this.standard.difficulty + this.expert.difficulty + this.skirmish.difficulty
+    return this.standard.difficulty + this.expert.difficulty + this.skirmish.difficulty + this.heroic.difficulty
   }
 }
 
@@ -74,13 +75,16 @@ function adjustmentPossibilities (allElements) {
   for (let standard = 0; standard < extractType(allElements, 'standard').length; standard++) {
     for (let expert = 0; expert < extractType(allElements, 'expert').length; expert++) {
       for (let skirmish = 0; skirmish < extractType(allElements, 'skirmish').length; skirmish++) {
-        adjustmentPossibilitiesList.push(
-          new AdjustmentPossibility(
-            extractType(allElements, 'standard')[standard],
-            extractType(allElements, 'expert')[expert],
-            extractType(allElements, 'skirmish')[skirmish]
+        for (let heroic = 0; heroic < extractType(allElements, 'heroic').length; heroic++) {
+          adjustmentPossibilitiesList.push(
+            new AdjustmentPossibility(
+              extractType(allElements, 'standard')[standard],
+              extractType(allElements, 'expert')[expert],
+              extractType(allElements, 'skirmish')[skirmish],
+              extractType(allElements, 'heroic')[heroic]
+            )
           )
-        )
+        }
       }
     }
   }
@@ -99,6 +103,7 @@ export function genEncounter (settings, allElementsUnfiltered) {
   const adjustmentPossibilitiesList = adjustmentPossibilities(allElements)
   const maxAdjustment = Math.max(...adjustmentPossibilitiesList.map(item => item.getDifficulty(solo)))
   const minAdjustment = Math.min(...adjustmentPossibilitiesList.map(item => item.getDifficulty(solo)))
+
   console.log('maxAdjustment', maxAdjustment)
   console.log('minAdjustment', minAdjustment)
 
@@ -110,6 +115,13 @@ export function genEncounter (settings, allElementsUnfiltered) {
   }
   const villain = pickElement(allVillains, target, error, solo)
   encounter.addVillain(villain)
+  if (villain.name === 'Wrecking Crew') {
+    moduleNumber = 0
+  }
+  if (villain.name === 'The Hood') {
+    moduleNumber = 7
+  }
+
   console.log(villain.obligatoryModules)
 
   for (let i = 0; i < villain.obligatoryModules.length; i++) {
@@ -118,7 +130,10 @@ export function genEncounter (settings, allElementsUnfiltered) {
     const index = allModules.findIndex(i => i.name === module.name)
     allModules.splice(index, 1)
   }
-  moduleNumber = moduleNumber - villain.obligatoryModules.length
+  if (settings.settingObligatoryModule) {
+    moduleNumber = moduleNumber - villain.obligatoryModules.length
+  }
+
   if (moduleNumber < 0) { moduleNumber = 0 }
 
   console.log(villain.name, villain.getDifficulty(solo))
@@ -148,6 +163,10 @@ export function genEncounter (settings, allElementsUnfiltered) {
     encounter.addModule(module)
     allModules.splice(index, 1)
     console.log(module.name, module.getDifficulty(solo))
+  }
+  if (villain.name === 'Nebula' || villain.name === 'Ronan the Accuser') {
+    encounter.addModule(new EncounterElement('module', "Galaxy's Most Wanted", 'Power Stone', 0)
+    )
   }
   return encounter
 }

@@ -26,7 +26,7 @@
     <main>
     <div>
       <button on:click={() => {updateStorage()} }> Save modifications </button><br>
-      {#each ['standard','expert','skirmish'] as type}
+      {#each ['standard','expert','skirmish','heroic'] as type}
       <b>Pick at least one</b><br>
       {#each $allElements as element}
         {#if element.type === type}

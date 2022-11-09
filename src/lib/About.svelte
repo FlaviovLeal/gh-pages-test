@@ -11,11 +11,4 @@ Big thanks to  <a href="https://boardgamegeek.com/user/gatchaman">Matt Crawford<
 
 Help improving the difficulty accuracy by recording your plays on Gameplay statistics (record your plays)
 
-
-<br>
-Hosted on github pages
-
-<br><br>
-<b> Planned Features </b><br>
-Improving looks<br>
 </main>

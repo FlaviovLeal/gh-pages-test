@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store'
 
-class EncounterElement {
+export class EncounterElement {
   constructor (type, set, name, difficulty, difficultyMultiplayer, difficultySolo, obligatoryModules) {
     this.type = type
     this.set = set
@@ -43,7 +43,7 @@ export const allElements = writable([
   new EncounterElement('villain', "Galaxy's Most Wanted", 'Ronan the Accuser', undefined, 23, 22, ['Ship Command']),
   new EncounterElement('villain', "Mad Titan's Shadow", 'Ebony Maw', undefined, 5, 9),
   new EncounterElement('villain', "Mad Titan's Shadow", 'Tower Defense', undefined, -2, -1),
-  new EncounterElement('villain', "Mad Titan's Shadow", 'Thanos', undefined, 3, 4),
+  new EncounterElement('villain', "Mad Titan's Shadow", 'Thanos', undefined, 3, 4, ['Infinity Gauntlet']),
   new EncounterElement('villain', "Mad Titan's Shadow", 'Hela', undefined, 5, 3),
   new EncounterElement('villain', "Mad Titan's Shadow", 'Loki', undefined, 13, 13, ['Infinity Gauntlet']),
   new EncounterElement('villain', 'The Hood', 'The Hood', undefined, 6, 6),
@@ -106,11 +106,14 @@ export const allElements = writable([
   new EncounterElement('standard', 'Core Set', 'Standard I', 0),
   new EncounterElement('standard', 'The Hood', 'Standard II', 7),
 
-  new EncounterElement('expert', 'Core Set', 'No Expert set', 0),
+  new EncounterElement('expert', 'Core Set', 'No Expert', 0),
   new EncounterElement('expert', 'Core Set', 'Expert I', 5),
   new EncounterElement('expert', 'The Hood', 'Expert II', 14),
 
-  // new EncounterElement('heroic', 'Core Set', 'Heroic', 9),
+  new EncounterElement('heroic', 'Core Set', 'No Heroic', 0),
+  new EncounterElement('heroic', 'Core Set', 'Heroic 1', 9),
+  new EncounterElement('heroic', 'Core Set', 'Heroic 2', 18),
+  new EncounterElement('heroic', 'Core Set', 'Heroic 3', 26),
 
   new EncounterElement('skirmish', 'Core Set', 'No Skirmish', 0),
   new EncounterElement('skirmish', 'Core Set', 'Skirmish Level 1', -16),
